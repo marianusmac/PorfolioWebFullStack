@@ -1,0 +1,25 @@
+<div class="header container-fluid">
+  <div class="row">
+    <div class="col-lg-3">
+      <img src="../../../assets/mariano_perfil.png" class="imgperfil" />
+    </div>
+    <div class="perfil col-lg-4">
+      <!--<p id="nombre">Mariano Roberto</p>-->
+      <p id="nombre">{{ persona.nombre }} {{ persona.apellido }}</p>
+      <p class="ocupacion">{{persona.titulo}}</p>
+      <!-- <button class="btn btn-default edit-perfil"><a href="#"><i class="fa fa-pen"></i></a></button> -->
+    </div>
+    <div class="about col-lg-5">
+      <h1 class="acerca">Acerca de mi</h1>
+      <p class="sobremi">{{persona.nacionalidad}}
+        <br />{{persona.nacimiento}}
+      </p>
+      <p><a href="mailto:marianus@gmail.com">{{persona.email}}</a></p>
+    </div>
+  </div>
+  <div class="detalle col-lg-12">
+    <div id="mas">{{persona.sobremi}}</div>
+    <button class="btn btn-default edit-perfil" ><a href="#"><i class="fa fa-pen"></i></a></button>
+  </div>
+</div>
+<!-- routerLink="/editpe" *ngIf="isLogged" -->

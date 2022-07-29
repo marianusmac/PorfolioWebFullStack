@@ -1,0 +1,50 @@
+div{
+  /*background: url(../../../assets/banner_pi-s.jpg) no-repeat;*/
+  background-image: linear-gradient(to right, #748BFF, #48D5FF);
+  background-size: cover;
+  border-bottom: 2px dotted white;
+}
+
+@media (max-width: 575px) {
+  #logoap {
+    width: 180px;
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 576px) {
+  #logoap {
+    width: 200px;
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  #logoap {
+    margin-left: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  #logoap {
+    margin-left: 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #logoap {
+    margin-left: 70px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #logoap {
+    margin-left: 100px;
+  }
+}
+
+@media (min-width: 1680px) {
+  #logoap {
+    margin-left: 150px;
+  }
+}

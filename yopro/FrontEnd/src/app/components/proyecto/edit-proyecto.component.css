@@ -1,0 +1,36 @@
+.gradient-custom {
+  /* Chrome 10-25, Safari 5.1-6 */
+ background: -webkit-linear-gradient(to top, #748BFF, #48D5FF);
+ 
+ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ background: linear-gradient(to top, #748BFF, #48D5FF);
+ }
+h2{
+  margin-bottom: 10px;
+  color:#48D5FF;
+}
+
+label, textarea{
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+input{
+  height: 30px;
+}
+
+input, textarea {
+  margin-bottom: 10px;
+  background-color: whitesmoke;
+}
+
+ button{
+  padding: 0 40px 0 40px;
+  font-size: 12px;
+  margin-top: 20px;
+  margin-bottom: -60px;
+ }
+
+ button:hover{
+  background-color: #48D5FF;
+ }

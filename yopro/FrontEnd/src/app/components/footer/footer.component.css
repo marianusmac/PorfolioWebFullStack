@@ -1,0 +1,13 @@
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  background-image: linear-gradient(to right, #748BFF, #48D5FF);
+  display: block;
+  padding-top: 25px;
+  background-size: cover;
+}
+
+.pie1 {
+  padding-bottom: 10px;
+}

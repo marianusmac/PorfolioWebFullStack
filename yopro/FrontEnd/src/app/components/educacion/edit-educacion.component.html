@@ -1,0 +1,35 @@
+<section class="vh-100 gradient-custom" *ngIf="editEdu">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-xs-8 col-md-8 col-lg-8 col-xl-8">
+        <div class="card bg-dark text-white" style="border-radius: 1rem">
+          <div class="card-body p-5 text-center">
+            <div class="mb-md-1 mt-md-1 pb-5">
+              <h2 class="fw-bold mb-2 text-uppercase">EDITAR EDUCACION RECIBIDA</h2>
+
+              <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                  <label for="institucionEdu">Modificar Institución</label>
+                  <input type="text" class="form-control" id="institucionEdu" name="institucionEdu" [(ngModel)]="editEdu.institucionEdu" required>
+                
+                  <label for="descripcionEdu">Modificar Tarea</label>
+                  <textarea rows="3" class="form-control" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="editEdu.descripcionEdu" required></textarea>
+
+                  <label for="fechaEdu">Modificar Institución</label>
+                  <input type="text" class="form-control" id="fechaEdu" name="fechaEdu" [(ngModel)]="editEdu.fechaEdu" required>
+
+                  <label for="imagenEdu">Modificar Institución</label>
+                  <input type="text" class="form-control" id="imagenEdu" name="imagenEdu" [(ngModel)]="editEdu.imagenEdu" required>
+                </div>
+                <button class="btn btn-light">
+                  ACTUALIZAR EDUCACION
+                </button>
+              </form>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

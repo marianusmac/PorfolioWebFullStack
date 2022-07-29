@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <h1 class="proyectos">PROYECTOS REALIZADOS</h1>
+  <div class="todos">
+    <div class="realizados col-12" *ngFor="let Proyecto of proye">
+      <h4 class="lista">◉ {{Proyecto.nombrePro}}</h4>
+        <div class="lista2">
+          <p class="descripcion">{{Proyecto.descripcionPro}}</p>
+          <p class="fecha">Año {{Proyecto.fechaPro}}</p>
+        </div>
+        <img src={{Proyecto.imagenPro}} class="imagen img-fluid">
+        <div *ngIf="isLogged"  class="btnedit">
+          <button class="btn1 btn-circle" routerLink="/editpro/{{Proyecto.id}}" ><i class="bi bi-pen"></i></button>
+          <button class="btn2 btn-circle" (click)="delete(Proyecto.id)" ><i class="bi bi-trash"></i></button>
+        </div>
+    </div>
+  </div>
+  <div class="col text-center">
+    <button type="button" class="btn btn-dark" routerLink="/nuevopro" *ngIf="isLogged">AÑADIR NUEVO PROYECTO</button>
+  </div>
+</div>
