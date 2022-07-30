@@ -9,16 +9,16 @@
 
               <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
                 <div class="form-group">
-                  <label for="nombrePro">Modificar Institución</label>
+                  <label for="nombrePro">Modificar Proyecto</label>
                   <input type="text" class="form-control" id="nombrePro" name="nombrePro" [(ngModel)]="editPro.nombrePro" required>
                 
-                  <label for="descripcionPro">Modificar Tarea</label>
+                  <label for="descripcionPro">Modificar Descripcion</label>
                   <textarea rows="3" class="form-control" id="descripcionPro" name="descripcionPro" [(ngModel)]="editPro.descripcionPro" required></textarea>
 
-                  <label for="fechaPro">Modificar Institución</label>
+                  <label for="fechaPro">Modificar Fecha</label>
                   <input type="text" class="form-control" id="fechaPro" name="fechaPro" [(ngModel)]="editPro.fechaPro" required>
 
-                  <label for="imagenPro">Modificar Institución</label>
+                  <label for="imagenPro">Modificar Imagen</label>
                   <input type="text" class="form-control" id="imagenPro" name="imagenPro" [(ngModel)]="editPro.imagenPro" required>
                 </div>
                 <button class="btn btn-light">
