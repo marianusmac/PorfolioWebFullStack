@@ -14,7 +14,7 @@
     <name>mrn</name>
     <description>Porfolio de MRN</description>
     <properties>
-        <java.version>18</java.version>
+        <java.version>8</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -68,6 +68,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>3.0.0</version>
         </dependency>
     </dependencies>
 

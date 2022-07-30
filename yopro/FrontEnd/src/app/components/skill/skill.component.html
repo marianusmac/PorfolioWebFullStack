@@ -1,0 +1,43 @@
+
+<div class="card">
+  <div class="card-body">
+      <h1>
+          Hard & Soft Skills  
+          <h1 *ngIf="isAdmin"><button class="btn btn-info mb-1" routerLink="/skillNuevo"> Nuevo</button>
+      </h1>
+      <hr>
+      </h1>
+      <div class="row">
+          <div class="text-center col-xs-1 col-sm-5 col-md-5 col-lg-4 padding" *ngFor="let skill of skillsList ; let i=index">
+              <circle-progress class="circle" 
+              [title]="skill.name" 
+                  [titleColor]="'white'" 
+                  [titleFontSize]="'1em'"
+                  [showSubtitle]="false" 
+                  [showUnits]="false" 
+                  [percent]="skill.progress" 
+                  [radius]="90"
+                  [imageSrc]="skill.imageSrc"
+                  [showImage]="true"
+                  [imageHeight]="70"
+                  [imageWidth]="70"
+                  [outerStrokeWidth]="16" 
+                  [innerStrokeWidth]="8" 
+                  [outerStrokeColor]="skill.outerStrokeColor"
+                  [innerStrokeColor]="skill.innerStrokeColor" 
+                  [animation]="true" 
+                  [animationDuration]="300">
+
+              </circle-progress>
+              <h6>Confirmado por: {{skill.confirmsNames}}</h6>
+              <td *ngIf="isAdmin"><button class="btn btn-warning mb-3" routerLink="/skillEdit/{{skill.id}}">Editar</button></td>
+              <td *ngIf="isAdmin"><button class="btn btn-danger mb-3" (click)="borrarSkillDeLista(skill)">Eliminar</button></td>
+              
+              <!--<button type="btn btn-secundary" data-bs-toggle="modal" 
+              data-bs-target="#contenido-modal" (click)="modificarSkill(skill)">Launch
+                  modal</button>-->
+          </div>
+      </div>
+
+
+
