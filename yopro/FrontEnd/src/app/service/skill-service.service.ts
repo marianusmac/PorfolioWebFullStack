@@ -17,7 +17,8 @@ import { Skill } from '../model/skill';
 })
 export class SkillServiceService {
 
-  skillUrl = 'https://porfoliomn.herokuapp.com/skills/'
+  // skillUrl = 'https://porfoliomn.herokuapp.com/skills/'
+  skillUrl = 'http://localhost:8080'
 
   
   constructor(private http:HttpClient) { }
@@ -31,25 +32,25 @@ export class SkillServiceService {
 }
 
   getAllSkill(): Observable<Skill[]>{
-    return this.http.get<Skill[]>(this.skillUrl+'apikb/skill/all').pipe(
+    return this.http.get<Skill[]>(this.skillUrl+'/skill/lista').pipe(
       catchError(this.handleError<Skill[]>('getAllSkill',[]))
   );
 }
   public saveSkill(newSkill:Skill):Observable<any>{
-    return this.http.post<any>(this.skillUrl + 'apikb/skill/',newSkill);
+    return this.http.post<any>(this.skillUrl + '/skill/create',newSkill);
   }
 
   public getSkill(id: number):Observable<Skill> {
-    return this.http.get<Skill>(this.skillUrl + `apikb/skill/one/${id}`);
+    return this.http.get<Skill>(this.skillUrl + `/skill/detail/${id}`);
   }
  
   public updateSkill(id:number,skill:Skill):Observable<any>{
-    return this.http.put<any>(this.skillUrl + `apikb/skill/edit/${id}`,skill);
+    return this.http.put<any>(this.skillUrl + `/skill/update/${id}`,skill);
   }
 
   public deleteSkill(skillsList: Skill[], skillParaBorrar: Skill ): Observable<Skill> {
     skillsList.filter(p => p.id !== skillParaBorrar.id)
-    return this.http.delete<any>(this.skillUrl + "apikb/skill/" + skillParaBorrar.id);
+    return this.http.delete<any>(this.skillUrl + "/skill/delete/" + skillParaBorrar.id);
   }
 
 }

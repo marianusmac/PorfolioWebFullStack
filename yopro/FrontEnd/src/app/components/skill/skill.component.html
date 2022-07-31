@@ -1,37 +1,45 @@
 
 <div class="card">
+  <div class="habilidades">
+    <h1 class="hys">HABILIDADES Soft&Hard</h1>
+  </div>
   <div class="card-body">
-      <h1>
-          Hard & Soft Skills  
-          <h1 *ngIf="isAdmin"><button class="btn btn-info mb-1" routerLink="/skillNuevo"> Nuevo</button>
-      </h1>
-      <hr>
+      <h1 class="card1">
+          <h2 *ngIf="isAdmin"><button class="btn btn-info mb-1" routerLink="/skill"> AÑADIR HABILIDAD</button>
+      </h2>
       </h1>
       <div class="row">
           <div class="text-center col-xs-1 col-sm-5 col-md-5 col-lg-4 padding" *ngFor="let skill of skillsList ; let i=index">
               <circle-progress class="circle" 
-              [title]="skill.name" 
-                  [titleColor]="'white'" 
+              [title]="skill.nombreSkill" 
+                  [titleColor]="'red'" 
                   [titleFontSize]="'1em'"
+                  backgroundColor="white"
+                  [outerStrokeColor]="'#48D5FF'"
+                  [innerStrokeColor]="'#5790db'"
                   [showSubtitle]="false" 
                   [showUnits]="false" 
-                  [percent]="skill.progress" 
+                  [percent]="skill.porcentajeSkill" 
                   [radius]="90"
-                  [imageSrc]="skill.imageSrc"
+                  [imageSrc]="skill.imagenSkill"
                   [showImage]="true"
                   [imageHeight]="70"
                   [imageWidth]="70"
                   [outerStrokeWidth]="16" 
                   [innerStrokeWidth]="8" 
-                  [outerStrokeColor]="skill.outerStrokeColor"
-                  [innerStrokeColor]="skill.innerStrokeColor" 
                   [animation]="true" 
                   [animationDuration]="300">
 
               </circle-progress>
-              <h6>Confirmado por: {{skill.confirmsNames}}</h6>
-              <td *ngIf="isAdmin"><button class="btn btn-warning mb-3" routerLink="/skillEdit/{{skill.id}}">Editar</button></td>
-              <td *ngIf="isAdmin"><button class="btn btn-danger mb-3" (click)="borrarSkillDeLista(skill)">Eliminar</button></td>
+            
+              <td *ngIf="isAdmin">
+                <button class="btn1 btn-circle" routerLink="/edit-skill/{{skill.id}}" ><i class="bi bi-pen"></i></button>
+              </td>
+              <td *ngIf="isAdmin">
+                <button class="btn2 btn-circle" (click)="delete(skill)" ><i class="bi bi-trash"></i></button>
+              </td>
+              <!-- <td *ngIf="isAdmin"><button class="btn btn-warning mb-3" routerLink="/skillEdit/{{skill.id}}">Editar</button></td>
+              <td *ngIf="isAdmin"><button class="btn btn-danger mb-3" (click)="borrarSkillDeLista(skill)">Eliminar</button></td> -->
               
               <!--<button type="btn btn-secundary" data-bs-toggle="modal" 
               data-bs-target="#contenido-modal" (click)="modificarSkill(skill)">Launch

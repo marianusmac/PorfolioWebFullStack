@@ -5,11 +5,11 @@ import { TokenService } from 'src/app/service/token.service';
 
 
 @Component({
-  selector: 'app-skills',
+  selector: 'app-skill',
   templateUrl: './skill.component.html',
   styleUrls: ['./skill.component.css']
 })
-export class SkillsComponent implements OnInit {
+export class SkillComponent implements OnInit {
 
   radius:number=100;
   modalSwitch: boolean=false;
@@ -45,23 +45,11 @@ cargarSkill():void{
   })
   }
 
-  borrarSkillDeLista(skillParaBorrar: Skill): void{
-    this.skillsList= this.skillsList.filter(p => p.id !== skillParaBorrar.id)
-    this.skillsDataService.deleteSkill(this.skillsList, skillParaBorrar).subscribe();
+  delete(skill: Skill): void{
+    this.skillsList= this.skillsList.filter(p => p.id !== skill.id)
+    this.skillsDataService.deleteSkill(this.skillsList, skill).subscribe();
   }
 
-  
-  /*
-  modificarSkill(skillParaEditar:Skill){
-    this.skillEdit= this.skillsList.filter(p => p.id !== skillParaEditar.id)
-    this.skillsDataService.updateSkill( skillParaEditar.id!,this.skillEdit).subscribe();
-  }
-
-  onUpdate(): void {
-    const id = this.activatedRoute.snapshot.params['id'];
-    this.skillsDataService.updateSkill(id, this.listSkill!).subscribe();
-    
-  }*/
 
   openModal(){
     this.modalSwitch = true;

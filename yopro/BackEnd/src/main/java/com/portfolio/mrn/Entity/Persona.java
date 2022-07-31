@@ -1,13 +1,16 @@
 package com.portfolio.mrn.Entity;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.Set;
  
 @Getter @Setter
 @Entity
@@ -46,5 +49,13 @@ public class Persona {
     @NotNull
     @Size(min = 1, max = 500, message = "demasiados caractéres")
     private String sobremi;
-     
+    
+    @OneToMany
+    private List<Experiencia> experiencias;
+    
+    @OneToMany
+    private List<Educacion> educacion;
+    
+    @OneToMany
+    private List<Proyecto> proyectos;
 }

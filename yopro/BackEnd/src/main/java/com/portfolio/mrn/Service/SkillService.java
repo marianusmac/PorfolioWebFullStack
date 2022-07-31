@@ -1,45 +1,44 @@
 package com.portfolio.mrn.Service;
 
 import com.portfolio.mrn.Entity.Skill;
-import com.portfolio.mrn.Repository.SkillRepository;
-import java.util.ArrayList;
+import com.portfolio.mrn.Repository.ISkillRepository;
 import java.util.List;
+import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 public class SkillService {
+	@Autowired
+	       ISkillRepository iSkillRepository;
 
-    @Autowired
-    SkillRepository skillRepository;
-    
-    public ArrayList<Skill> getAllSkill() {
-        return (ArrayList<Skill>) skillRepository.findAll();
-    }
-        
-    public Skill saveSkill(Skill skill) {
-        return skillRepository.save(skill);
-    }
-    public Skill getSkillByID(Long id) {
-        return skillRepository.findById(id).get();
-    }
+	public List<Skill> list(){
+		return iSkillRepository.findAll();
+	}
 
-    public boolean deleteSkillById(Long id) {
-        try {
-        skillRepository.deleteById(id);
-        return true;
-        } catch (Exception e){
-            return false;
-        }
-    }
-    
-    public Skill findSkill(Long id) {
-        return skillRepository.findById(id).orElse(null);
-    }
+	public Optional<Skill> getOne(Long id){
+		return iSkillRepository.findById(id);
+	}
 
-    public List<Skill> getSkillByPersonId(Long personId) {
-        return skillRepository.findAllByPersonId(personId);
-    }
-    
+	public Optional<Skill> getByNombreSkill(String nombreSkill){
+		return iSkillRepository.findByNombreSkill(nombreSkill);
+	}
+
+	public void save(Skill skill){
+		iSkillRepository.save(skill);
+	}
+
+	public void delete(Long id){
+		iSkillRepository.deleteById(id);
+	}
+
+	public boolean existsById(Long id){
+		return iSkillRepository.existsById(id);
+	}
+
+	public boolean existsByNombreSkill(String nombreSkill){
+		return iSkillRepository.existsByNombreSkill(nombreSkill);
+	}
 }
-

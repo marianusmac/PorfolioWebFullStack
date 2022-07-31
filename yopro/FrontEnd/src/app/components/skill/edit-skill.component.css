@@ -1,0 +1,34 @@
+.gradient-custom {
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to top, #748BFF, #48D5FF);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to top, #748BFF, #48D5FF);
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #48D5FF;
+}
+
+label,
+textarea {
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+input {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: -40px;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: #48D5FF;
+}

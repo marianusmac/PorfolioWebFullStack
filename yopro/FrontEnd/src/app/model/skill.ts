@@ -1,24 +1,15 @@
 export class Skill{
     
   id?:number;
-  name:string;
-  progress:number;
-  confirms:number;
-  confirmsNames:string;
-  imageSrc:string;
-  outerStrokeColor:string;
-  innerStrokeColor:string;
+  nombreSkill:string;
+  porcentajeSkill:number;
+  imagenSkill:string;
 
-  constructor(name:string,progress:number,confirms:number,
-      confirmsNames:string,imageSrc:string,outerStrokeColor:string,innerStrokeColor:string){
+  constructor(nombreSkill:string,porcentajeSkill:number,imagenSkill:string){
       
-      this.name=name;
-      this.progress=progress;
-      this.confirms=confirms;
-      this.confirmsNames=confirmsNames;
-      this.imageSrc=imageSrc;
-      this.outerStrokeColor=outerStrokeColor;
-      this.innerStrokeColor=innerStrokeColor;
+      this.nombreSkill=nombreSkill;
+      this.porcentajeSkill=porcentajeSkill;
+      this.imagenSkill=imagenSkill;
       
 
 }

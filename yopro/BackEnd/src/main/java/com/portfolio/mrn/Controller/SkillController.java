@@ -1,102 +1,92 @@
 package com.portfolio.mrn.Controller;
 
-import com.portfolio.mrn.Entity.Person;
-import com.portfolio.mrn.Entity.Skill;
-import com.portfolio.mrn.Service.PersonService;
+import com.portfolio.mrn.Dto.SkillDto;
 import com.portfolio.mrn.Service.SkillService;
-import java.util.ArrayList;
+import com.portfolio.mrn.Entity.Skill;
+import com.portfolio.mrn.Security.Controller.Mensaje;
 import java.util.List;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/skill")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SkillController {
+	@Autowired
+	SkillService skillService;
 
-    @Autowired
-    SkillService skillService;
+	@GetMapping("/lista")
+	public ResponseEntity<List<Skill>> list(){
+		List<Skill> list = skillService.list();
+		return new ResponseEntity(list, HttpStatus.OK);
+	}
 
-    @Autowired
-    PersonService personService;
+	@GetMapping("/detail/{id}")
+	public ResponseEntity<Skill> getById(@PathVariable("id") Long id){
+		if(!skillService.existsById(id))
+			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+		Skill skill = skillService.getOne(id).get();
+		return new ResponseEntity(skill, HttpStatus.OK);
+	}
 
-    
-    @GetMapping("/getskills")
-    public ResponseEntity<List<Skill>> getAllSkill() {
-        List<Skill> skillList = skillService.getAllSkill();
-        return new ResponseEntity<>(skillList, HttpStatus.OK);
-    }
-    
-    @GetMapping("/getone/{id}")
-    public ResponseEntity<Skill> getSkillById(@PathVariable(value = "id") Long id) {
-        Skill skill = skillService.getSkillByID(id);
-        return new ResponseEntity<>(skill, HttpStatus.OK);
-    }
-    
-    @GetMapping("/person/{person_id}")
-    public ResponseEntity<List<Skill>> getAllSkillByPersonId(@PathVariable(value = "person_id") Long personId) {
-        List<Skill> skillList = new ArrayList<>();
-        if (personService.getPersonByID(personId) != null) {
-            skillList = skillService.getSkillByPersonId(personId);
-            return new ResponseEntity<>(skillList, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(skillList, HttpStatus.NOT_FOUND);
-        }
-    }
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> delete(@PathVariable("id") Long id) {
+		if (!skillService.existsById(id)) {
+			return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+		}
+		skillService.delete(id);
+		return new ResponseEntity(new Mensaje("producto eliminado"), HttpStatus.OK);
+	}
+        private static final Logger logger = LogManager.getLogger(SkillController.class);
 
-    @PostMapping("/person/{person_id}")
-    public ResponseEntity<Skill> createSkill(@PathVariable(value = "person_id") Long personId, 
-            @RequestBody Skill skillRequest) {
-        Person per = personService.findById(personId);
-        skillRequest.setPerson(per);
-        Skill newSkill = skillService.saveSkill(skillRequest);
-        return new ResponseEntity<>(newSkill, HttpStatus.CREATED);
-    }
+	@PostMapping("/create")
+	public ResponseEntity<?> create(@RequestBody SkillDto skillDto){
+            if(StringUtils.isBlank(skillDto.getNombreSkill()))
+			return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+		if(skillService.existsByNombreSkill(skillDto.getNombreSkill()))
+			return new ResponseEntity(new Mensaje("Esa skill existe"), HttpStatus.BAD_REQUEST);
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<HttpStatus> deleteSkill(@PathVariable("id") Long id) {
-        skillService.deleteSkillById(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-    
-    //Usar: Hernan nuevo
-   @PutMapping("/editar/{id}")
-    public ResponseEntity<Skill> updateSkill(@PathVariable("id") Long id, @RequestBody Skill skillRequest) {
-        Skill skill =skillService.getSkillByID(id);
-        // .orElseThrow(() -> new ResourceNotFoundException("EducationId " + id + "not found"));
-        skill.setPerson(skillRequest.getPerson());
-        skillRequest.setId(skill.getId());
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setSkipNullEnabled(true).setMatchingStrategy(MatchingStrategies.STRICT);
-        modelMapper.map(skillRequest, skill);
+		Skill skill = new Skill(skillDto.getNombreSkill(),
+				skillDto.getPorcentajeSkill(),
+				skillDto.getImagenSkill());
+		skillService.save(skill);
 
-        return new ResponseEntity<>(skillService.saveSkill(skill), HttpStatus.OK);
-    }
-    
-    //De hernan,(copia del de person) solo cambie person por skill. 
-    //Trae un skill sin relacion
-    @PutMapping("/change/{id}")
-    public Skill cambiarSkill(@PathVariable("id") Long id, @RequestBody Skill skillTochange) {
+		return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
+	}
 
-        Skill s = skillService.findSkill(id);
-        System.out.println(s);
-        skillTochange.setId(s.getId());
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setSkipNullEnabled(true).setMatchingStrategy(MatchingStrategies.STRICT);
-        modelMapper.map(skillTochange, s);
-        return skillService.saveSkill(s);
-    }
-    
+	@PutMapping("/update/{id}")
+	public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody SkillDto skillDto){
+		//Validamos si existe el ID
+		if(!skillService.existsById(id))
+			return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+		//Compara nombre de skill
+		if(skillService.existsByNombreSkill(skillDto.getNombreSkill()) &&
+				skillService.getByNombreSkill(skillDto.getNombreSkill()).get().getId() != id)
+			return new ResponseEntity(new Mensaje("Esa skill ya existe"), HttpStatus.BAD_REQUEST);
+		//No puede estar vacio
+		if(StringUtils.isBlank(skillDto.getNombreSkill()))
+			return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+
+		Skill skill = skillService.getOne(id).get();
+		skill.setNombreSkill(skillDto.getNombreSkill());
+		skill.setPorcentajeSkill(skillDto.getPorcentajeSkill());
+		skill.setImagenSkill(skillDto.getImagenSkill());
+
+		skillService.save(skill);
+		return new ResponseEntity(new Mensaje("Skill actualizada"), HttpStatus.OK);
+
+	}
 }

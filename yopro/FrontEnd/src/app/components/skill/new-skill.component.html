@@ -1,0 +1,31 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-xs-8 col-md-8 col-lg-8 col-xl-8">
+                <div class="card bg-dark text-white" style="border-radius: 1rem">
+                    <div class="card-body p-5 text-center">
+                        <div class="mb-md-1 mt-md-1 pb-5">
+                            <h2 class="fw-bold mb-2">NUEVA SKILL</h2>
+
+                            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                                <div class="form-group">
+                                    <label for="nombreSkill">Nombre de la habilidad</label>
+                                    <input type="text" class="form-control" id="nombreSkill" name="nombreSkill" [(ngModel)]="nombreSkill" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="porcentajeSkill">Porcentaje aprendido</label>
+                                    <input type="number" class="form-control" id="porcentajeSkill" name="porcentajeSkill" [(ngModel)]="porcentajeSkill" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="imagenSkill">Imagen habilidad</label>
+                                    <input type="text" class="form-control" id="imagenSkill" name="imagenSkill" [(ngModel)]="imagenSkill" required>
+                                </div>
+                                <button class="btn btn-outline-light btn-lg px-5t">Crear Nueva Habilidad</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -71,6 +71,10 @@ table {
   max-width: 50px;
 }
 
+h1{
+  text-align: center;
+}
+
 
 @media (min-width: 576px) {
   table {
