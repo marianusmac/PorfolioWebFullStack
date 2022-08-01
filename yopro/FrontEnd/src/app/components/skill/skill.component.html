@@ -1,8 +1,7 @@
-
+<div class="habilidades">
+  <h1 class="hys">HABILIDADES Soft&Hard</h1>
+</div>
 <div class="card">
-  <div class="habilidades">
-    <h1 class="hys">HABILIDADES Soft&Hard</h1>
-  </div>
   <div class="card-body">
       <h1 class="card1">
           <h2 *ngIf="isAdmin"><button class="btn btn-info mb-1" routerLink="/skill"> AÑADIR HABILIDAD</button>
@@ -38,12 +37,6 @@
               <td *ngIf="isAdmin">
                 <button class="btn2 btn-circle" (click)="delete(skill)" ><i class="bi bi-trash"></i></button>
               </td>
-              <!-- <td *ngIf="isAdmin"><button class="btn btn-warning mb-3" routerLink="/skillEdit/{{skill.id}}">Editar</button></td>
-              <td *ngIf="isAdmin"><button class="btn btn-danger mb-3" (click)="borrarSkillDeLista(skill)">Eliminar</button></td> -->
-              
-              <!--<button type="btn btn-secundary" data-bs-toggle="modal" 
-              data-bs-target="#contenido-modal" (click)="modificarSkill(skill)">Launch
-                  modal</button>-->
           </div>
       </div>
 
