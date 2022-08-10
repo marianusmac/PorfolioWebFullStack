@@ -66,5 +66,5 @@ cargarSkill():void{
     }
 }
 
-
+// ! = = distinto !== victor mono ligadura
 
