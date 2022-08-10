@@ -1,4 +1,4 @@
-div{
+div {
   float: right;
   position: relative;
   display: inline-flex;
@@ -11,72 +11,77 @@ div{
   padding-right: 5px;
 }
 
-/* #instagram:hover{
-  filter:drop-shadow(0 1px 1px rgba(255, 255, 255, 0.7))
-} */
+.social:hover {
+  filter: drop-shadow(0 1px 1px rgba(116, 139, 255, 0.7))
+}
 
 .btn {
-  color:white;
+  color: white;
 }
+
+.btn:hover {
+  filter: drop-shadow(0 1px 1px rgba(116, 139, 255, 0.7))
+}
+
 
 /* Para dispositivos moviles */
 
 @media (max-width:576px) {
-  .social{
-    width: 30px;
+  .social {
+      width: 30px;
   }
 }
 
 @media (min-width:576px) {
-  .social{
-    width: 35px;
+  .social {
+      width: 35px;
   }
-  div{
-    margin-right: 10px;
+  div {
+      margin-right: 10px;
   }
 }
 
 @media (min-width:768px) {
-  .social{
-    width: 40px;
+  .social {
+      width: 40px;
   }
-  div{
-    margin-right: 20px;
+  div {
+      margin-right: 20px;
   }
 }
 
 @media (min-width:992px) {
-  .social{
-    width: 40px;
+  .social {
+      width: 40px;
   }
-  div{
-    margin-right: 30px;
+  div {
+      margin-right: 30px;
   }
 }
 
 @media (min-width:1200px) {
-  .social{
-    width: 40px;
+  .social {
+      width: 40px;
   }
-  div{
-    margin-right: 70px;
+  div {
+      margin-right: 70px;
   }
 }
 
 @media (min-width:1400px) {
-  .social{
-    width: 40px;
+  .social {
+      width: 40px;
   }
-  div{
-    margin-right: 100px;
+  div {
+      margin-right: 100px;
   }
 }
 
 @media (min-width:1680px) {
-  .social{
-    width: 40px;
+  .social {
+      width: 40px;
   }
-  div{
-    margin-right: 150px;
+  div {
+      margin-right: 150px;
   }
 }
