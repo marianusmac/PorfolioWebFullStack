@@ -1,18 +1,18 @@
 package com.portfolio.mrn.Service;
 
 import com.portfolio.mrn.Entity.Experiencia;
-import com.portfolio.mrn.Repository.RExperiencia;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.portfolio.mrn.Repository.ExperienciaRepository;
 
 @Service
 @Transactional
-public class SExperiencia {
+public class ExperienciaService {
      @Autowired
-     RExperiencia rExperiencia;
+     ExperienciaRepository rExperiencia;
      
      public List<Experiencia> list(){
          return rExperiencia.findAll();

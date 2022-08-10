@@ -18,43 +18,51 @@
 }
 
 .btn1 {
-  color: #48D5FF;
-  font-size: 16px;
-  width: 35px;
-  height: 35px;
-  padding: 6px 0px;
-  border-radius: 17px;
-  background-color: white;
-  border:none;
+	color: #48D5FF;
 }
+
 .btn1:hover {
-  background-color: rgb(232, 232, 232);
-  width: 35px;
-  height: 35px;
-  border-radius: 17px;
+	background-color: transparent;
+	width: 35px;
+	height: 35px;
+	border-radius: 17px;
+	border: #748BFF solid 1px;
+  color: #748BFF;
 }
 
 .btn2 {
-  color:#748BFF;
-  font-size: 16px;
-  width: 35px;
-  height: 35px;
-  padding: 6px 0px;
-  border-radius: 17px;
-  background-color: white;
-  border:none;
+	color: #748BFF;
 }
+
 .btn2:hover {
-  background-color: rgb(232, 232, 232);
-  width: 35px;
-  height: 35px;
-  border-radius: 17px;
+	color: #98156A;
+	border: #98156A solid 1px;
+}
+
+.btn1,
+.btn2 {
+	font-size: 16px;
+	width: 35px;
+	height: 35px;
+	border-radius: 17px;
+	background-color: transparent;
+	border: none;
+  /* margin: 0 -10px 0 -10px; */
+}
+
+.btn1:hover,
+.btn2:hover {
+	background-color: transparent;
+	width: 35px;
+	height: 35px;
+	border-radius: 17px;
 }
 
 table {
   display: inline-flex;
   justify-content: center;
   font-size: 14px;
+  vertical-align: middle;
 }
 
 .btn {
@@ -105,7 +113,7 @@ table {
     padding-bottom: 50px;
   }
   .imagen{
-    width: 100px;
+    width: 80px;
   }
 }
 
@@ -117,7 +125,7 @@ table {
     padding-bottom: 50px;
   }
   .imagen{
-    width: 120px;
+    width: 80px;
   }
 }
 

@@ -3,7 +3,7 @@ package com.portfolio.mrn.Controller;
 import com.portfolio.mrn.Dto.dtoExperiencia;
 import com.portfolio.mrn.Entity.Experiencia;
 import com.portfolio.mrn.Security.Controller.Mensaje;
-import com.portfolio.mrn.Service.SExperiencia;
+import com.portfolio.mrn.Service.ExperienciaService;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/explab")
 @CrossOrigin(origins = "http://localhost:4200")
-public class CExperiencia {
+public class ExperienciaController {
     @Autowired
-    SExperiencia sExperiencia;
+    ExperienciaService sExperiencia;
     
     @GetMapping("/lista")
     public ResponseEntity<List<Experiencia>> list(){

@@ -13,8 +13,6 @@
             <!--Inicio Botones Editar y Borrar-->
             <td *ngIf="isLogged">
               <button class="btn1 btn-circle" routerLink="/editedu/{{Educacion.id}}" ><i class="bi bi-pen"></i></button>
-            </td>
-            <td *ngIf="isLogged">
               <button class="btn2 btn-circle" (click)="delete(Educacion.id)" ><i class="bi bi-trash"></i></button>
             </td>
             <!--Fin Botones Editar y Borrar-->

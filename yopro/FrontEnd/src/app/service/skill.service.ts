@@ -1,16 +1,7 @@
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class SkillServiceService {
-
-//   constructor() { }
-// }
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, of } from 'rxjs';
-import { Skill } from '../model/skill';
+import { Skill } from '../model/skill.model';
 
 @Injectable({
   providedIn: 'root'
@@ -54,4 +45,5 @@ export class SkillServiceService {
   }
 
 }
+
 

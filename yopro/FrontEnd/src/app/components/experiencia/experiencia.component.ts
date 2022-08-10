@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SExperienciaService } from 'src/app/service/s-experiencia.service';
+import { SExperienciaService } from 'src/app/service/experiencia.service';
 import { TokenService } from 'src/app/service/token.service';
 import { Experiencia } from 'src/app/model/experiencia.model';
 

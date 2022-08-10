@@ -8,17 +8,22 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+
+
+
+
 @Service
 @Transactional
 public class SkillService {
 	@Autowired
-	       ISkillRepository iSkillRepository;
+	ISkillRepository iSkillRepository;
 
 	public List<Skill> list(){
 		return iSkillRepository.findAll();
 	}
 
-	public Optional<Skill> getOne(Long id){
+	public Optional<Skill> getOne(int id){
 		return iSkillRepository.findById(id);
 	}
 
@@ -30,11 +35,11 @@ public class SkillService {
 		iSkillRepository.save(skill);
 	}
 
-	public void delete(Long id){
+	public void delete(int id){
 		iSkillRepository.deleteById(id);
 	}
 
-	public boolean existsById(Long id){
+	public boolean existsById(int id){
 		return iSkillRepository.existsById(id);
 	}
 
@@ -42,3 +47,4 @@ public class SkillService {
 		return iSkillRepository.existsByNombreSkill(nombreSkill);
 	}
 }
+

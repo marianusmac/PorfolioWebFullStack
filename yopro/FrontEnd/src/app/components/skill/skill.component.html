@@ -1,44 +1,42 @@
 <div class="habilidades">
-  <h1 class="hys">HABILIDADES Soft&Hard</h1>
+  <h1 class="hys">HABILIDADES SOFT & HARD</h1>
 </div>
 <div class="card">
   <div class="card-body">
-      <h1 class="card1">
-          <h2 *ngIf="isAdmin"><button class="btn btn-info mb-1" routerLink="/skill"> AÑADIR HABILIDAD</button>
-      </h2>
-      </h1>
       <div class="row">
           <div class="text-center col-xs-1 col-sm-5 col-md-5 col-lg-4 padding" *ngFor="let skill of skillsList ; let i=index">
+            <p class="titulos">{{skill.nombreSkill}}</p>
               <circle-progress class="circle" 
-              [title]="skill.nombreSkill" 
-                  [titleColor]="'red'" 
+                  [title]="skill.nombreSkill" 
+                  [showTitle]="true"
+                  [titleColor]="'black'" 
                   [titleFontSize]="'1em'"
                   backgroundColor="white"
                   [outerStrokeColor]="'#48D5FF'"
                   [innerStrokeColor]="'#5790db'"
                   [showSubtitle]="false" 
-                  [showUnits]="false" 
+                  [showUnits]="true" 
                   [percent]="skill.porcentajeSkill" 
                   [radius]="90"
-                  [imageSrc]="skill.imagenSkill"
                   [showImage]="true"
                   [imageHeight]="70"
                   [imageWidth]="70"
-                  [outerStrokeWidth]="16" 
-                  [innerStrokeWidth]="8" 
+                  [outerStrokeWidth]="12" 
+                  [innerStrokeWidth]="4" 
                   [animation]="true" 
-                  [animationDuration]="300">
-
+                  [animationDuration]="300"
+                  [imageSrc]="skill.imagenSkill">
               </circle-progress>
+              
+              <p class="porciento">{{skill.porcentajeSkill}}%</p>
+              <!-- <p class="titulos">{{skill.nombreSkill}}</p> -->
             
-              <td *ngIf="isAdmin">
+              <div class="botones" *ngIf="isAdmin">
                 <button class="btn1 btn-circle" routerLink="/edit-skill/{{skill.id}}" ><i class="bi bi-pen"></i></button>
-              </td>
-              <td *ngIf="isAdmin">
                 <button class="btn2 btn-circle" (click)="delete(skill)" ><i class="bi bi-trash"></i></button>
-              </td>
+              </div>
           </div>
-      </div>
-
-
-
+          <div class="card1">
+            <h2 *ngIf="isAdmin"><button class="btn btn-info mb-1" routerLink="/skill"> AÑADIR HABILIDAD</button></h2>
+          </div>
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Skill } from 'src/app/model/skill';
-import { SkillServiceService } from 'src/app/service/skill-service.service';
+import { Skill } from 'src/app/model/skill.model';
+import { SkillServiceService } from 'src/app/service/skill.service';
 import { TokenService } from 'src/app/service/token.service';
 
 
@@ -56,7 +56,6 @@ cargarSkill():void{
 
   }
 
-  //Dejar esta función para color picker en caso de necesidad
   color():string{
     let bg_colour:string="";
     bg_colour= Math.floor(Math.random() * 16777215).toString(16);
@@ -66,5 +65,6 @@ cargarSkill():void{
       
     }
 }
+
 
 
