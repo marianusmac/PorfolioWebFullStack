@@ -1,25 +1,22 @@
 <div class="header container-fluid">
   <div class="row">
-    <div class="col-lg-3">
-      <img src="../../../assets/mariano_perfil.png" class="imgperfil" />
-    </div>
-    <div class="perfil col-lg-4">
-      <!--<p id="nombre">Mariano Roberto</p>-->
-      <p id="nombre">{{ persona.nombre }} {{ persona.apellido }}</p>
-      <p class="ocupacion">{{persona.titulo}}</p>
-      <!-- <button class="btn btn-default edit-perfil"><a href="#"><i class="fa fa-pen"></i></a></button> -->
-    </div>
-    <div class="about col-lg-5">
-      <h1 class="acerca">Acerca de mi</h1>
-      <p class="sobremi">Nacionalidad: {{persona.nacionalidad}}
-        <br />F. Nac: {{persona.nacimiento}}
-      </p>
-      <p><a href="mailto:marianus@gmail.com">{{persona.email}}</a></p>
-    </div>
+      <div class="col-lg-3">
+          <img src={{persona.img}} class="imagen_perfil" />
+      </div>
+      <div class="perfil col-lg-4">
+          <p id="nombre">{{persona.nombre}} {{persona.apellido}}</p>
+          <p class="ocupacion">{{persona.titulo}}</p>
+      </div>
+      <div class="about col-lg-5">
+          <p>Nacimiento: {{persona.nacimiento}}
+              <br>Nacionalidad: {{persona.nacionalidad}}<br><a href="mailto:marianus@gmail.com">{{persona.email}}</a>
+      </div>
   </div>
   <div class="detalle col-lg-12">
-    <div id="mas">{{persona.sobremi}}</div>
-    <!-- <button class="btn btn-default edit-perfil" ><a href="#"><i class="fa fa-pen"></i></a></button> -->
+      <h1 class="acerca">Acerca de mi</h1>
+      <div id="mas">{{persona.sobremi}}</div>
+      <!--Inicio Botones Editar-->
+      <!-- <button class="btn1 btn-circle" routerLink="/editAcerca/{{Persona.id}}"><a ><i class="bi bi-pen"></i></a></button> -->
+      <!--Fin Botones Editar-->
   </div>
 </div>
-<!-- routerLink="/editpe" *ngIf="isLogged" -->
