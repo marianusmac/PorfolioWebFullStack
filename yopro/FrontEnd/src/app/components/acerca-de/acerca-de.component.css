@@ -3,145 +3,175 @@
   color: white;
   text-align: center;
 }
-.imgperfil{
-  display:inline-flex;
+
+.imagen_perfil {
+  display: inline-flex;
   place-items: center;
   border-radius: 50%;
   width: 200px;
   height: auto;
 }
-.fa{
+
+.btn1 {
   color: white;
-  height: 2.4rem;
-  width: 2.4rem;
-  line-height: 2.4rem;
-  text-align: center;
-  border-radius: 50%;
+  background-color: transparent;
   border: 1px solid white;
+  font-size: 16px;
+  width: 35px;
+  height: 35px;
+  padding: 6px 0px;
+  border-radius: 17px;
 }
-.fa:hover {
-  background: white;
-  color: red;
+
+.btn1:hover {
+  color: #748BFF;
+  background-color: white;
+  border: 1px solid #748BFF;
+  width: 35px;
+  height: 35px;
+  border-radius: 17px;
+}
+
+.acerca {
+  margin: 0 -30px 20px -30px;
 }
 
 .header {
   background-image: linear-gradient(to right, #748BFF, #48D5FF);
 }
 
-a:link{
-  color:white;
+a:link {
+  color: white;
+  text-decoration: none;
 }
-a:link:hover{
-  color:blueviolet;
+
+a:link:hover {
+  color: blueviolet;
 }
 
 @media (max-width: 991px) {
-  .imgperfil {
-    margin-top: -10%;
+  .imagen_perfil {
+      margin-top: -10%;
   }
   #nombre {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: .8em;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: .5em;
   }
   .ocupacion {
-    font-style: italic;
+      font-style: italic;
+  }
+  .about {
+      margin-top: -20px;
+      font-size: 14px;
   }
   .acerca {
-    font-size: 24px;
-    background-color: #748BFF;
-    border-top: 1px dotted white;
-    border-bottom: 1px dotted white;
-    margin: 0 -15px 20px -15px;
-    padding-top: 8px;
-    padding-bottom: 12px;
+      font-size: 24px;
+      background-color: #748BFF;
+      border-top: 1px dotted white;
+      border-bottom: 1px dotted white;
+      padding-top: 8px;
+      padding-bottom: 12px;
   }
-  #mas{
-    margin: -20px 10px 20px 10px;
+  #mas {
+      margin: 20px 10px 20px 10px;
   }
 }
+
 
 /* --Transformación a 992px-- */
+
 @media (min-width: 992px) {
-  .imgperfil{
-    margin-top: -100px;
-    margin-left: 30px;
+  .imagen_perfil {
+      margin-top: -100px;
+      margin-left: 30px;
   }
-  .perfil{
-    text-align: left;
-    align-content: flex-start;
+  .perfil {
+      text-align: left;
+      align-content: flex-start;
   }
-  #nombre{
-    font-size: 20px;
-    font-weight: 700;
+  #nombre {
+      font-size: 20px;
+      font-weight: 700;
   }
-  .about{
-    text-align: right;
-    align-content:flex-start;
-    padding-right: 50px;
+  .about {
+      text-align: right;
+      align-content: flex-start;
+      padding-right: 50px;
   }
-  .acerca{
-    font-size: 20px;
-    margin-top: 3px;
+  .acerca {
+      font-size: 24px;
+      background-color: #748BFF;
+      border-top: 1px dotted white;
+      border-bottom: 1px dotted white;
+      /* margin: 0 -30px 20px -30px; */
+      padding-top: 8px;
+      padding-bottom: 12px;
   }
-  .ocupacion{
-    margin-top: -12px;
+  .ocupacion {
+      margin-top: -12px;
   }
-  #mas{
-    margin: -10px 30px 30px 30px;
+  #mas {
+      margin: -10px 30px 30px 30px;
   }
 }
+
+
 /* ------Fin 992px----------*/
 
+
 /* --Transformación a 1200px-- */
+
 @media (min-width: 1200px) {
-  .imgperfil{
-    margin-left: 60px;
+  .imagen_perfil {
+      margin-left: 60px;
   }
-  .about{
-    padding-right: 80px;
+  .about {
+      padding-right: 80px;
   }
-  #mas{
-    margin: -10px 80px 30px 80px;
+  #mas {
+      margin: -10px 80px 30px 80px;
   }
 }
+
+
 /* ------Fin 1200px----------*/
 
+
 /* --Transformación a 1400px-- */
+
 @media (min-width: 1400px) {
-  .imgperfil{
-    margin-left: 80px;
+  .imagen_perfil {
+      margin-left: 80px;
   }
-  .perfil{
-    margin-left: -20px;
+  .perfil {
+      margin-left: -20px;
   }
-  .about{
-    padding-right: 80px;
+  .about {
+      padding-right: 80px;
   }
-  #mas{
-    margin: 0px 200px 30px 200px;
+  #mas {
+      margin: 0px 200px 30px 200px;
   }
 }
+
+
 /* ------Fin 1400px----------*/
 
+
 /* --Transformación a 1680px-- */
+
 @media (min-width: 1680px) {
-  #nombre{
-    font-size: 24px;
+  .perfil {
+      margin-left: -50px;
   }
-  
-  .perfil{
-    margin-left: -50px;
-    font-size: 20px;
+  .about {
+      padding-right: 120px;
   }
-  .about{
-    padding-right: 120px;
-  }
-  #mas{
-    margin: 0 auto;
-    max-width: 800px;
-    font-size: 20px;
-    padding-bottom: 40px;
+  #mas {
+      margin: 0px 250px 30px 250px;
   }
 }
+
+
 /* ------Fin 1680px----------*/
